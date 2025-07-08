@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keranjang Belanja</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="judul">🛒 Keranjang Belanja</h1>
+    <p class="desc">Berikut adalah produk yang telah kamu pilih. Kamu bisa hapus, kembali, atau langsung beli sekarang via WhatsApp.</p>
+
+    <div id="cart-list"></div>
+
+    <p class="total">Total: Rp <span id="total-price">0</span></p>
+
+    <div class="button-group">
+      <a id="whatsapp-link" href="#" target="_blank" class="btn">Beli Sekarang</a>
+      <a href="index.html" class="btn kembali">← Kembali</a>
+    </div>
+  </div>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function updateCartDisplay() {
+      const list = document.getElementById("cart-list");
+      const totalEl = document.getElementById("total-price");
+      const waBtn = document.getElementById("whatsapp-link");
+
+      list.innerHTML = "";
+      let total = 0;
+      let message = "Halo kak, saya ingin memesan:%0A";
+
+      cart.forEach((item, i) => {
+        total += item.price;
+        message += `${i + 1}. ${item.product} - Rp ${item.price.toLocaleString()}%0A`;
+
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = `
+          <span>${item.product} - Rp ${item.price.toLocaleString()}</span>
+          <button onclick="removeItem(${i})">Hapus</button>
+        `;
+        list.appendChild(div);
+      });
+
+      totalEl.textContent = total.toLocaleString();
+      message += `%0ATotal: Rp ${total.toLocaleString()}`;
+      waBtn.href = `https://wa.me/6289676930992?text=${message}`;
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartDisplay();
+    }
+
+    updateCartDisplay();
+  </script>
+</body>
+</html>
