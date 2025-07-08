@@ -17,7 +17,7 @@ function addToCart(product, price) {
   cart.push({ product, price: parseInt(price) });
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartIcon();
-  showToast("Produk ditambahkan ke keranjang");
+  showToast("Produk berhasil ditambahkan di keranjang kuning");
 }
 
 function showToast(message) {
