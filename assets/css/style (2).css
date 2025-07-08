@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+}
+.container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+h1, h2 {
+  color: #76ff03;
+}
+.bubble {
+  background-color: #1e1e1e;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.button {
+  background-color: #00c853;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  text-align: center;
+}
+.service-card {
+  background-color: #222;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+.icon {
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* Tombol Tambah ke Keranjang */
+.add-to-cart {
+  background-color: #00c851; /* Hijau terang */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #007e33; /* Hijau gelap saat hover */
+}
+
+/* Keranjang Belanja Tampilan Baru */
+.cart-container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  color: #222;
+}
+
+.cart-container h1 {
+  color: #00ff44;
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.cart-container .description {
+  color: #444;
+  font-size: 14px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.cart-total {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: right;
+  margin-top: 20px;
+  color: #555;
+}
+
+.cart-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.cart-buttons a {
+  background-color: #00c851;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  flex: 1;
+  transition: background-color 0.3s ease;
+}
+
+.cart-buttons a:hover {
+  background-color: #007e33;
+}
