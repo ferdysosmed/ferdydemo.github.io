@@ -43,7 +43,13 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px;
-      border-bottom: 1px solid #444; /* Garis pemisah yang lebih terang agar terlihat di background gelap */
+      border-top: 1px solid #444; /* Garis pemisah atas */
+      border-bottom: 1px solid #444; /* Garis pemisah bawah */
+      margin-bottom: -1px; /* Untuk menghindari garis ganda antara item */
+    }
+
+    .cart-item:first-child {
+      border-top: none; /* Hapus border atas untuk item pertama jika diinginkan */
     }
 
     .cart-item span {
