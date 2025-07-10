@@ -7,24 +7,27 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif; /* Menggunakan font yang konsisten */
       padding: 20px;
-      background-color: #121212;
+      background-color: #121212; /* Warna background gelap sesuai referensi */
+      color: #e0e0e0; /* Warna teks default untuk body */
     }
 
     .container {
       max-width: 600px;
       margin: auto;
-      background: white;
-      border-radius: 10px;
+      background: #ffffff; /* Warna putih untuk bubble/container */
+      border-radius: 12px; /* Radius sudut yang lebih besar */
       padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Bayangan yang lebih kuat */
+      color: #333; /* Warna teks di dalam container agar terlihat jelas di background putih */
     }
 
     h1 {
       font-size: 26px;
       margin-bottom: 10px;
       text-align: center;
+      color: #76ff03; /* Warna hijau terang untuk judul */
     }
 
     .description {
@@ -32,6 +35,7 @@
       color: #555;
       margin-bottom: 20px;
       text-align: center;
+      font-weight: bold; /* Deskripsi ditebalkan */
     }
 
     .cart-item {
@@ -40,6 +44,11 @@
       align-items: center;
       padding: 10px;
       border-bottom: 1px solid #eee;
+    }
+
+    .cart-item span {
+      font-weight: bold; /* Kumpulan produk ditebalkan */
+      color: #333; /* Pastikan teks produk terlihat jelas */
     }
 
     .cart-item button {
@@ -56,16 +65,18 @@
       font-weight: bold;
       text-align: right;
       margin-top: 15px;
+      color: #333; /* Warna teks total agar terlihat jelas */
     }
 
     .btn-group {
       display: flex;
       gap: 10px;
       margin-top: 20px;
+      /* flex-wrap: wrap; Removed as only two buttons now */
     }
 
-    .whatsapp-button {
-      background-color: green;
+    .whatsapp-button, .back-button { /* Gabungkan gaya untuk kedua tombol */
+      background-color: #00c853; /* Warna hijau sesuai tombol "Beli Sekarang" di halaman lain */
       color: white;
       text-align: center;
       flex: 1;
@@ -73,30 +84,30 @@
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
+      cursor: pointer; /* Menambahkan kursor pointer */
+      transition: background-color 0.3s ease; /* Transisi untuk hover */
+      /* min-width: 150px; Removed as only two buttons now */
     }
 
-    .back-button {
-      background-color: #28a745;
-      color: white;
-      text-align: center;
-      flex: 1;
-      padding: 12px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
+    .whatsapp-button:hover, .back-button:hover {
+      background-color: #007e33; /* Hijau gelap saat hover */
     }
+
+    /* Removed .suggestion-box and .loading-indicator styles */
   </style>
 </head>
 <body>
   <div class="container">
     <h1>🛒 Keranjang Belanja</h1>
-    <p class="description">Berikut adalah produk yang telah kamu pilih. Kamu bisa hapus, kembali, atau langsung beli sekarang via WhatsApp.</p>
+    <p class="description"><strong>Berikut adalah produk yang telah kamu pilih. Kamu bisa hapus, kembali, atau langsung beli sekarang via WhatsApp.</strong></p>
     <div id="cart-list"></div>
     <p class="total">Total: Rp <span id="total-price">0</span></p>
     <div class="btn-group">
       <a id="whatsapp-link" class="whatsapp-button" href="#" target="_blank">Beli Sekarang</a>
       <a href="index.html" onclick="location.href=this.href; return false;" class="back-button">⬅ Kembali</a>
+      <!-- Removed the Gemini suggestion button -->
     </div>
+    <!-- Removed the Gemini suggestion box and loading indicator -->
   </div>
 
   <script>
@@ -117,8 +128,9 @@
 
         const div = document.createElement("div");
         div.className = "cart-item";
+        // Menambahkan tag <strong> untuk nama produk
         div.innerHTML = `
-          <span>${item.product} - Rp ${item.price.toLocaleString()}</span>
+          <span><strong>${item.product}</strong> - Rp ${item.price.toLocaleString()}</span>
           <button onclick="removeItem(${i})">Hapus</button>
         `;
         list.appendChild(div);
@@ -133,9 +145,14 @@
       cart.splice(index, 1);
       localStorage.setItem("cart", JSON.stringify(cart));
       updateCartDisplay();
+      // Removed hiding Gemini suggestion as it's no longer there
     }
 
-    updateCartDisplay();
+    // Removed the getGeminiSuggestion function and its event listener
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCartDisplay(); // Pastikan tampilan keranjang diperbarui saat halaman dimuat
+    });
+
   </script>
 </body>
 </html>
