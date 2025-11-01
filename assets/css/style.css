@@ -1,0 +1,317 @@
+/* --- Pengaturan Font & Latar Belakang --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+@keyframes background-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  /* Latar belakang gradient lembut yang terinspirasi dari gambar Anda */
+  background: linear-gradient(135deg, #c3aeff 0%, #a8c0ff 100%);
+  background-size: 400% 400%;
+  animation: background-animation 15s ease infinite;
+  color: #2c3e50; /* Warna teks utama (gelap) untuk kontras */
+  min-height: 100vh;
+}
+
+.container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* --- Judul --- */
+h1, h2 {
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* --- Gaya Kaca Utama ("Bubble") --- */
+.bubble {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff; /* Teks di dalam kaca menjadi putih */
+}
+
+/* Teks di dalam bubble */
+.bubble p, .bubble li {
+  color: #f0f0f0;
+}
+
+/* --- Gaya Kaca untuk Kartu Produk --- */
+.service-card {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.service-card:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  color: #ffffff;
+}
+
+.service-card .button-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* --- Tombol (Gaya Outline Kaca) --- */
+.button,
+.add-to-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.button:hover,
+.add-to-cart:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Grid Tombol */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.icon {
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+/* === GAYA YANG DIPINDAHKAN DARI input-link.html === */
+.input-field {
+  width: 100%;
+  padding: 12px;
+  margin: 15px 0;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+.input-field::placeholder {
+  color: #eeeeee;
+}
+.confirm-button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+.confirm-button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+.product-details p {
+  margin: 5px 0;
+  color: #f0f0f0;
+}
+.product-details h2 {
+  color: #ffffff;
+}
+hr {
+  border-color: rgba(255, 255, 255, 0.2);
+  margin: 20px 0;
+}
+.warning-text {
+  font-size: 12px;
+  color: #e0e0e0;
+  text-align: left;
+  line-height: 1.5;
+  margin-top: -5px; 
+  margin-bottom: 15px;
+}
+
+/* === GAYA YANG DIPINDAHKAN DARI cart.html === */
+.cart-container {
+  max-width: 600px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #f0f0f0;
+}
+.cart-container h1 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  text-align: left;
+  color: #ffffff;
+}
+.description {
+  font-size: 14px;
+  color: #f0f0f0;
+  margin-bottom: 20px;
+  text-align: left;
+  font-weight: bold;
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.cart-item:last-child {
+  border-bottom: none;
+}
+.item-details {
+  flex-grow: 1;
+}
+.item-details span {
+  font-weight: bold;
+  color: #f0f0f0;
+}
+.item-details small {
+  display: block;
+  color: #e0e0e0;
+  margin-top: 4px;
+  word-break: break-all;
+}
+.cart-item button {
+  background: rgba(220, 53, 69, 0.7); /* Merah semi-transparan */
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 15px;
+  transition: background-color 0.3s ease;
+}
+.cart-item button:hover {
+  background: rgba(220, 53, 69, 1);
+}
+.total {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 20px;
+  color: #f0f0f0;
+}
+.btn-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.whatsapp-button, .back-button {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: white;
+  text-align: center;
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.whatsapp-button:hover, .back-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+/* Tombol WA dibuat lebih menonjol */
+.whatsapp-button {
+  background-color: rgba(37, 211, 102, 0.7);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.whatsapp-button:hover {
+  background-color: rgba(37, 211, 102, 1);
+}
+
+.empty-cart-container {
+  text-align: center;
+  padding: 40px 20px;
+  color: #f0f0f0;
+}
+.empty-cart-container .back-button {
+  display: inline-block;
+  flex: none;
+  width: 200px;
+  margin-top: 20px;
+}
+
+/* --- Notifikasi Toast (dari input-link.html) --- */
+.toast-popup {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(37, 211, 102, 0.9); /* Hijau */
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px; 
+  font-weight: bold;
+  text-align: center;
+  z-index: 10000;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+.toast-popup.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+  }
