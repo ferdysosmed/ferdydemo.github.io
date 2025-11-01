@@ -5,83 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Input Link Target - ferdysosmed</title>
   <link rel="stylesheet" href="assets/css/style.css" />
-  <style>
-    /* Style yang sudah ada */
-    .input-field {
-      width: 100%;
-      padding: 12px;
-      margin: 15px 0;
-      border-radius: 8px;
-      border: 1px solid #555;
-      background-color: #333;
-      color: #e0e0e0;
-      box-sizing: border-box;
-      font-size: 16px;
-    }
-    .input-field::placeholder {
-      color: #888;
-    }
-    .confirm-button {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      background-color: #00c851;
-      color: white;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      text-align: center;
-      transition: background-color 0.3s ease;
-    }
-    .confirm-button:hover {
-      background-color: #007e33;
-    }
-    .product-details p {
-        margin: 5px 0;
-    }
-    hr {
-        border-color: #444;
-        margin: 20px 0;
-    }
-
-    /* CSS untuk notifikasi popup (toast) */
-    .toast-popup {
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #28a745; /* Warna hijau */
-      color: white;
-      padding: 12px 25px;
-      border-radius: 8px; 
-      font-weight: bold;
-      text-align: center;
-      z-index: 10000;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      opacity: 0;
-      visibility: hidden;
-      /* Animasi saat muncul dari bawah */
-      transition: opacity 0.5s, visibility 0.5s, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-    }
-
-    .toast-popup.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translate(-50%, 0); /* Berpindah ke posisi tengah */
-    }
-    
-    /* CSS UNTUK TEKS PERINGATAN */
-    .warning-text {
-      font-size: 12px;
-      color: #888;
-      text-align: left;
-      line-height: 1.5;
-      /* PERUBAHAN MARGIN */
-      margin-top: -5px; 
-      margin-bottom: 15px;
-    }
-  </style>
+  <!-- BLOK <STYLE> LAMA SUDAH DIHAPUS DARI SINI -->
 </head>
 <body>
   <div class="container">
@@ -112,8 +36,6 @@
     <a href="javascript:history.back()" class="button" style="text-align:center; display:block; margin-top:15px;">Kembali</a>
   </div>
 
-  <!-- Hapus link ke cart.js karena updateCartIcon tidak akan berfungsi di sini dan reload halaman lebih efektif -->
-  <!-- <script src="assets/js/cart.js"></script> -->
   <script>
     // Fungsi untuk menampilkan notifikasi popup
     function showToast(message) {
@@ -184,24 +106,17 @@
           localStorage.setItem("cart", JSON.stringify(cart));
           
           // 2. Tampilkan notifikasi
-          showToast('Produk berhasil ditambahkan ke keranjang kuning.');
+          showToast('Produk berhasil ditambahkan ke keranjang.');
           
           // 3. Alihkan kembali ke halaman sebelumnya dan REFRESH
-          // Beri waktu yang cukup (misalnya 3 detik) agar pengguna sempat membaca toast sebelum navigasi.
           const refreshDelay = 2500; 
 
           setTimeout(() => {
             if (previousPageUrl) {
-                // Menggunakan window.location.replace() untuk:
-                // a) Mengarahkan ke halaman sebelumnya (previousPageUrl)
-                // b) Memastikan halaman tersebut dimuat ulang sepenuhnya (refresh)
-                // Ini menggantikan history.back() yang tidak selalu me-refresh halaman.
                 window.location.replace(previousPageUrl);
             } else {
-                // Fallback jika tidak ada document.referrer
                 history.back();
             }
-            // Karena menggunakan replace(), tidak perlu lagi memanggil window.location.reload()
           }, refreshDelay); 
         }
       });
