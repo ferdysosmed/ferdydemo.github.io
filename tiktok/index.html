@@ -13,20 +13,15 @@
   right: 20px;
   z-index: 9999;
 ">
-  <a href="../cart.html" style="position: relative; display: inline-block;">
-    <img src="../assets/img/keranjang.png" alt="Keranjang" style="width: 65px; height: 65px;">
-    <span id="cart-count" style="
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      background: red;
-      color: white;
-      font-size: 14px;
-      border-radius: 50%;
-      padding: 3px 7px;
-      font-weight: bold;
-      display: none;
-    "></span>
+  <!-- === IKON KERANJANG (FLOATING) BARU === -->
+<a href="../cart.html" id="floating-cart-btn">
+  <span class="material-icons">shopping_cart</span>
+  <span id="cart-count"></span>
+</a>
+<!-- === AKHIR IKON KERANJANG BARU === -->
+    * Pastikan juga Anda menambahkan link Google Icons di `<head>` pada file-file tersebut (jika belum ada):
+```html
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </a>
   </div>
   <div class="container">
