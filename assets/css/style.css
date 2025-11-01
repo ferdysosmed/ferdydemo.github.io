@@ -354,3 +354,74 @@ hr {
   margin: 0;
   line-height: 1.4;
 }
+/* === TAMBAHAN CSS UNTUK IKON BARU === */
+
+/* 1. Style untuk Ikon SVG (TikTok & Instagram) */
+.icon-svg {
+  height: 20px; /* Menyamakan ukuran dengan .icon */
+  width: 20px;
+  vertical-align: middle;
+  margin-right: 10px;
+  fill: #ffffff; /* Mengubah warna SVG jadi putih */
+}
+
+/* 2. Menyesuaikan .icon dari Google Icons agar sejajar */
+.icon.material-icons {
+  vertical-align: middle;
+}
+
+
+/* 3. Style untuk Ikon Keranjang (Floating) BARU */
+#floating-cart-btn {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 9999;
+  
+  /* Gaya Glassmorphism */
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  /* Bentuk Bulat & Ukuran */
+  width: 65px;
+  height: 65px;
+  border-radius: 50%; /* Bulat */
+  
+  /* Posisi Ikon di Tengah */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Style Ikon & Teks */
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+#floating-cart-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Mengatur ukuran ikon keranjang di dalam tombol */
+#floating-cart-btn .material-icons {
+  font-size: 32px; 
+}
+
+/* 4. Update Badge Notifikasi (Angka Merah) */
+#cart-count {
+  position: absolute;
+  top: -5px; /* Disesuaikan untuk tombol bulat */
+  right: -5px; /* Disesuaikan untuk tombol bulat */
+  background: red;
+  color: white;
+  font-family: 'Poppins', sans-serif; /* Menyamakan font */
+  font-size: 14px;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-weight: 600;
+  display: none; /* Tetap none by default, JS akan menampilkannya */
+  border: 2px solid white; /* Border putih agar lebih menonjol */
+}
