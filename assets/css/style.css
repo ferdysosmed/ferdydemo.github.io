@@ -314,4 +314,43 @@ hr {
   opacity: 1;
   visibility: visible;
   transform: translate(-50%, 0);
-  }
+}
+/* === TAMBAHAN CSS UNTUK FITUR GRID (KENAPA PILIH KAMI) === */
+.features-grid {
+  display: grid;
+  /* Membuat grid responsif:
+    - Di layar kecil, akan jadi 2 kolom (minmax 120px)
+    - Di layar lebih besar, akan jadi 3 atau 4 kolom
+  */
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.feature-card {
+  /* Menggunakan gaya kaca yang sedikit lebih transparan */
+  background: rgba(255, 255, 255, 0.1); 
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+.feature-card:hover {
+  background: rgba(255, 255, 255, 0.2); /* Efek hover */
+}
+
+/* Mengatur ikon dari Google Icons */
+.feature-card .material-icons {
+  font-size: 36px; /* Ukuran ikon */
+  margin-bottom: 10px;
+}
+
+.feature-card h3 {
+  font-size: 0.9rem; /* Ukuran teks */
+  font-weight: 400; /* Sedikit lebih tipis agar rapi */
+  margin: 0;
+  line-height: 1.4;
+}
