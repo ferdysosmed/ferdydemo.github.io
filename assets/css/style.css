@@ -315,20 +315,17 @@ hr {
   visibility: visible;
   transform: translate(-50%, 0);
 }
+
 /* === TAMBAHAN CSS UNTUK FITUR GRID (KENAPA PILIH KAMI) === */
+
 .features-grid {
   display: grid;
-  /* Membuat grid responsif:
-    - Di layar kecil, akan jadi 2 kolom (minmax 120px)
-    - Di layar lebih besar, akan jadi 3 atau 4 kolom
-  */
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 15px;
   margin-top: 20px;
 }
 
 .feature-card {
-  /* Menggunakan gaya kaca yang sedikit lebih transparan */
   background: rgba(255, 255, 255, 0.1); 
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
@@ -354,15 +351,16 @@ hr {
   margin: 0;
   line-height: 1.4;
 }
-/* === TAMBAHAN CSS UNTUK IKON BARU === */
+
+/* === TAMBAHAN CSS UNTUK IKON BARU (SVG & KERANJANG) === */
 
 /* 1. Style untuk Ikon SVG (TikTok & Instagram) */
 .icon-svg {
-  height: 20px; /* Menyamakan ukuran dengan .icon */
+  height: 20px; 
   width: 20px;
   vertical-align: middle;
   margin-right: 10px;
-  fill: #ffffff; /* Mengubah warna SVG jadi putih */
+  fill: #ffffff; 
 }
 
 /* 2. Menyesuaikan .icon dari Google Icons agar sejajar */
@@ -377,24 +375,16 @@ hr {
   bottom: 80px;
   right: 20px;
   z-index: 9999;
-  
-  /* Gaya Glassmorphism */
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  
-  /* Bentuk Bulat & Ukuran */
   width: 65px;
   height: 65px;
-  border-radius: 50%; /* Bulat */
-  
-  /* Posisi Ikon di Tengah */
+  border-radius: 50%; 
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  /* Style Ikon & Teks */
   color: white;
   text-decoration: none;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -413,14 +403,24 @@ hr {
 /* 4. Update Badge Notifikasi (Angka Merah) */
 #cart-count {
   position: absolute;
-  top: -5px; /* Disesuaikan untuk tombol bulat */
-  right: -5px; /* Disesuaikan untuk tombol bulat */
+  top: -6px; /* Disesuaikan */
+  right: -6px; /* Disesuaikan */
   background: red;
   color: white;
   font-family: 'Poppins', sans-serif; /* Menyamakan font */
   font-size: 14px;
   border-radius: 50%;
-  padding: 4px 8px;
+  
+  /* === PERBAIKAN UNTUK BENTUK BULAT === */
+  width: 26px; /* Ukuran tetap */
+  height: 26px; /* Ukuran tetap */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box; /* Pastikan ukuran tetap */
+  /* 'padding' lama (4px 8px) dihapus */
+  /* === AKHIR PERBAIKAN === */
+
   font-weight: 600;
   display: none; /* Tetap none by default, JS akan menampilkannya */
   border: 2px solid white; /* Border putih agar lebih menonjol */
