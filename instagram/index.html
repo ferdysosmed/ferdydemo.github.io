@@ -5,34 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Layanan Instagram</title>
   <link rel="stylesheet" href="../assets/css/style.css">
-  </head>
+  <!-- Menambahkan Google Fonts (Poppins) dan Google Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
 <body>
-  <div style="
-  position: fixed;
-  bottom: 80px;  /* Naik sedikit dari bawah */
-  right: 20px;
-  z-index: 9999;
-">
-  <a href="../cart.html" style="position: relative; display: inline-block;">
-    <img src="../assets/img/keranjang.png" alt="Keranjang" style="width: 65px; height: 65px;">
-    <span id="cart-count" style="
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      background: red;
-      color: white;
-      font-size: 14px;
-      border-radius: 50%;
-      padding: 3px 7px;
-      font-weight: bold;
-      display: none;
-    "></span>
+  
+  <!-- === IKON KERANJANG (FLOATING) BARU === -->
+  <a href="../cart.html" id="floating-cart-btn">
+    <span class="material-icons">shopping_cart</span>
+    <span id="cart-count"></span>
   </a>
-  </div>
+  <!-- === AKHIR IKON KERANJANG BARU === -->
+
   <div class="container">
     <h1>Layanan Instagram</h1>
     <div class="bubble">
-      <p>Pilih layanan Instagram yang ingin kamu boost.</p> <div class="service-grid">
+      <p>Pilih layanan Instagram yang ingin kamu boost.</p> 
+      <div class="service-grid">
         <div class="service-card">
           <div class="card-content">
             <strong>🎁 Promo 🎁</strong>
