@@ -223,12 +223,13 @@ hr {
   text-align: left;
   color: #ffffff;
 }
+/* === PERBAIKAN WARNA TEKS SAMAR (DESKRIPSI) === */
 .description {
   font-size: 14px;
-  color: #f0f0f0;
+  color: #ffffff; /* DIBUAT PUTIH CERAH */
   margin-bottom: 20px;
   text-align: left;
-  font-weight: 300; /* Dibuat lebih tipis */
+  font-weight: 400; /* Dibuat normal */
 }
 .cart-item {
   display: flex;
@@ -247,9 +248,11 @@ hr {
   font-weight: 600; /* Bold */
   color: #ffffff;
 }
+/* === PERBAIKAN WARNA TEKS SAMAR (HARGA & LINK) === */
 .item-details small {
   display: block;
-  color: #e0e0e0;
+  color: #ffffff; /* DIBUAT PUTIH CERAH */
+  font-weight: 400; /* Dibuat normal */
   margin-top: 4px;
   word-break: break-all;
 }
@@ -442,15 +445,16 @@ hr {
 
   display: none; /* Tetap none by default, JS akan menampilkannya */
 }
-/* ... (kode CSS Anda yang sudah ada) ... */
 
 /* === GAYA BARU UNTUK FOOTER S&K === */
+/* === PERBAIKAN WARNA TEKS SAMAR (FOOTER) === */
 .sk-footer {
   text-align: center; 
   padding: 20px 0; 
   margin-top: 20px; /* Jarak dari gelembung di atasnya */
-  color: rgba(255, 255, 255, 0.7); /* Warna teks putih transparan */
+  color: #ffffff; /* DIBUAT PUTIH CERAH */
   font-size: 14px;
+  font-weight: 400;
 }
 
 .sk-footer a {
