@@ -12,10 +12,16 @@ body {
   margin: 0;
   padding-bottom: 80px; /* Memberi ruang di bawah agar tidak tertutup footer */
   font-family: 'Poppins', sans-serif;
-  /* Latar belakang gradient lembut yang terinspirasi dari gambar Anda */
-  background: linear-gradient(135deg, #c3aeff 0%, #a8c0ff 100%);
-  background-size: 400% 400%;
-  animation: background-animation 15s ease infinite;
+  
+  /* --- INI BAGIAN YANG BARU --- */
+  /* Path ini (../) keluar dari folder 'css' lalu masuk ke folder 'img' */
+  background-image: url('../assets/img/background.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Membuat background diam saat di-scroll */
+  /* --- AKHIR BAGIAN BARU --- */
+  
   color: #2c3e50; /* Warna teks utama (gelap) untuk kontras */
   min-height: 100vh;
 }
