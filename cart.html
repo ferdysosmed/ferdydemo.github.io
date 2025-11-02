@@ -5,33 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Keranjang Belanja - ferdysosmed</title>
   
-  <!-- 1. Menghubungkan ke file CSS utama (sudah benar) -->
   <link rel="stylesheet" href="assets/css/style.css" />
-  
-  <!-- 2. Menambahkan Google Fonts & Icons (WAJIB agar konsisten) -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
-  <!-- 3. BLOK <STYLE> LAMA SUDAH DIHAPUS DARI SINI -->
 </head>
 <body>
 
-  <!-- Ikon Keranjang (Floating) baru agar konsisten -->
+  <!-- Ikon Keranjang (Floating) tetap di luar container -->
   <a href="cart.html" id="floating-cart-btn">
     <span class="material-icons">shopping_cart</span>
     <span id="cart-count"></span>
   </a>
 
-  <!-- Container Halaman Keranjang (menggunakan class baru dari style.css) -->
-  <div class="cart-container-wrapper"> 
+  <!-- === PEMBUNGKUS UTAMA BARU (untuk memberi jarak) === -->
+  <div class="container">
+
+    <!-- Container Halaman Keranjang (sekarang di dalam .container) -->
     <div class="cart-container"> 
       <h1>Keranjang Belanja</h1>
       <p class="description">Berikut adalah daftar produk yang telah Anda pilih. Periksa kembali sebelum melanjutkan pemesanan.</p>
       
-      <!-- Daftar item keranjang -->
       <div id="cart-list"></div>
       
-      <!-- Tampilan jika keranjang kosong -->
       <div id="empty-cart-info" style="display: none;">
           <div class="empty-cart-container">
               <p>Keranjang Anda masih kosong.</p>
@@ -39,7 +35,6 @@
           </div>
       </div>
       
-      <!-- Total dan Tombol Checkout -->
       <div id="cart-summary" style="display: none;">
           <p class="total">Total Harga : Rp <span id="total-price">0</span></p>
           <div class="btn-group">
@@ -47,20 +42,24 @@
             <a id="whatsapp-link" class="whatsapp-button" href="#" target="_blank">Beli Sekarang</a>
           </div>
       </div>
-    </div>
-  </div>
+    </div> <!-- Penutup .cart-container -->
 
-  <!-- Memuat cart.js untuk update ikon -->
+    <!-- Footer S&K (dipindahkan ke dalam .container) -->
+    <div class="sk-footer">
+      Disarankan untuk membaca <a href="syarat-dan-ketentuan.html">Syarat dan Ketentuan</a> sebelum melakukan order.
+    </div>
+
+  </div> <!-- === PENUTUP .container === -->
+
+
   <script src="assets/js/cart.js"></script> 
   
-  <!-- Script khusus untuk halaman cart.html (TIDAK BERUBAH) -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       updateCartDisplay();
     });
 
     function updateCartDisplay() {
-      // Panggil juga fungsi global untuk update ikon di pojok
       if (typeof updateCartIcon === 'function') {
         updateCartIcon();
       }
@@ -121,9 +120,5 @@
     }
   </script>
   
-  <!-- Footer S&K -->
-  <div style="text-align: center; padding: 20px 0; margin-top: 30px; color: #555; font-size: 14px;">
-    Disarankan untuk membaca <a href="syarat-dan-ketentuan.html" style="text-decoration: underline; color: #555;">Syarat dan Ketentuan</a> sebelum melakukan order.
-  </div>
 </body>
 </html>
