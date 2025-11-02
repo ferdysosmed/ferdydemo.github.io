@@ -15,7 +15,7 @@ body {
   
   /* --- INI BAGIAN YANG BARU --- */
   /* Path ini (../) keluar dari folder 'css' lalu masuk ke folder 'img' */
-  background-image: url('../assets/img/background.jpg');
+  background-image: url('background.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
