@@ -5,141 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Keranjang Belanja - ferdysosmed</title>
   <link rel="stylesheet" href="assets/css/style.css" />
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      padding: 20px;
-      background-color: #1a1a1a;
-      color: #e0e0e0;
-    }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: #2a2a2a;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      color: #f0f0f0;
-    }
-    h1 {
-      font-size: 26px;
-      margin-bottom: 10px;
-      text-align: left;
-      color: #76ff03;
-    }
-    .description {
-      font-size: 14px;
-      color: #cccccc;
-      margin-bottom: 20px;
-      text-align: left;
-      font-weight: bold;
-    }
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 10px;
-      border-bottom: 1px solid #444;
-    }
-    .cart-item:last-child {
-        border-bottom: none;
-    }
-    .item-details {
-        flex-grow: 1;
-    }
-    .item-details span {
-      font-weight: bold;
-      color: #f0f0f0;
-    }
-    .item-details small {
-        display: block;
-        color: #aaa;
-        margin-top: 4px;
-        word-break: break-all;
-    }
-    .cart-item button {
-      background: red;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-left: 15px;
-    }
-    .total {
-      font-size: 18px;
-      font-weight: bold;
-      /* PERUBAHAN: Posisi total harga diubah ke kiri */
-      text-align: left;
-      margin-top: 20px;
-      color: #f0f0f0;
-    }
-    .btn-group {
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
-    }
-    .whatsapp-button, .back-button {
-      background-color: #00c853;
-      color: white;
-      text-align: center;
-      flex: 1;
-      padding: 12px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      /* PERUBAHAN: Menambahkan flexbox untuk memastikan teks selalu di tengah */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .whatsapp-button:hover, .back-button:hover {
-      background-color: #007e33;
-    }
-    .empty-cart-container {
-        text-align: center;
-        padding: 40px 20px;
-        color: #888;
-    }
-    .empty-cart-container .back-button {
-        display: inline-block;
-        flex: none;
-        width: 200px;
-        margin-top: 20px;
-    }
-  </style>
+  <!-- Menambahkan Google Fonts (Poppins) dan Google Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>Keranjang Belanja</h1>
-    <p class="description">Berikut adalah daftar produk yang telah Anda pilih. Periksa kembali sebelum melanjutkan pemesanan.</p>
-    
-    <div id="cart-list"></div>
-    
-    <div id="empty-cart-info" style="display: none;">
-        <div class="empty-cart-container">
-            <p>Keranjang Anda masih kosong.</p>
+
+  <!-- Ikon Keranjang (Konsisten) -->
+  <a href="/cart.html" id="floating-cart-btn">
+    <span class="material-icons">shopping_cart</span>
+    <span id="cart-count"></span>
+  </a>
+
+  <!-- Container Halaman Keranjang -->
+  <div class="cart-container-wrapper"> <!-- Wrapper baru untuk centering -->
+    <div class="cart-container"> <!-- Style lama dipindahkan ke CSS -->
+      <h1>Keranjang Belanja</h1>
+      <p class="description">Berikut adalah daftar produk yang telah Anda pilih. Periksa kembali sebelum melanjutkan pemesanan.</p>
+      
+      <div id="cart-list"></div>
+      
+      <div id="empty-cart-info" style="display: none;">
+          <div class="empty-cart-container">
+              <p>Keranjang Anda masih kosong.</p>
+              <a href="index.html" class="back-button">Kembali</a>
+          </div>
+      </div>
+      
+      <div id="cart-summary" style="display: none;">
+          <p class="total">Total Harga : Rp <span id="total-price">0</span></p>
+          <div class="btn-group">
             <a href="index.html" class="back-button">Kembali</a>
-        </div>
-    </div>
-    
-    <div id="cart-summary" style="display: none;">
-        <p class="total">Total Harga : Rp <span id="total-price">0</span></p>
-        <div class="btn-group">
-          <a href="index.html" class="back-button">Kembali</a>
-          <a id="whatsapp-link" class="whatsapp-button" href="#" target="_blank">Beli Sekarang</a>
-        </div>
+            <a id="whatsapp-link" class="whatsapp-button" href="#" target="_blank">Beli Sekarang</a>
+          </div>
+      </div>
     </div>
   </div>
 
+  <script src="assets/js/cart.js"></script> <!-- Memuat cart.js untuk update ikon -->
   <script>
+    // Script khusus untuk halaman cart.html
     document.addEventListener('DOMContentLoaded', () => {
       updateCartDisplay();
     });
 
     function updateCartDisplay() {
+      // Panggil juga fungsi global untuk update ikon di pojok
+      if (typeof updateCartIcon === 'function') {
+        updateCartIcon();
+      }
+
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
       const list = document.getElementById("cart-list");
       const totalEl = document.getElementById("total-price");
