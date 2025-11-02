@@ -442,3 +442,19 @@ hr {
 
   display: none; /* Tetap none by default, JS akan menampilkannya */
 }
+/* ... (kode CSS Anda yang sudah ada) ... */
+
+/* === GAYA BARU UNTUK FOOTER S&K === */
+.sk-footer {
+  text-align: center; 
+  padding: 20px 0; 
+  margin-top: 20px; /* Jarak dari gelembung di atasnya */
+  color: rgba(255, 255, 255, 0.7); /* Warna teks putih transparan */
+  font-size: 14px;
+}
+
+.sk-footer a {
+  text-decoration: underline; 
+  color: #ffffff; /* Link warna putih solid */
+  font-weight: 600;
+}
