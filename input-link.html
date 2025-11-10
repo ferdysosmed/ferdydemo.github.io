@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Input Link Target - ferdysosmed</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* Style yang sudah ada */
+    .input-field {
+      width: 100%;
+      padding: 12px;
+      margin: 15px 0;
+      border-radius: 8px;
+      border: 1px solid #555;
+      background-color: #333;
+      color: #e0e0e0;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    .input-field::placeholder {
+      color: #888;
+    }
+    .confirm-button {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      background-color: #00c851;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+    .confirm-button:hover {
+      background-color: #007e33;
+    }
+    .product-details p {
+        margin: 5px 0;
+    }
+    hr {
+        border-color: #444;
+        margin: 20px 0;
+    }
+
+    /* CSS untuk notifikasi popup (toast) */
+    .toast-popup {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #28a745; /* Warna hijau */
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px; 
+      font-weight: bold;
+      text-align: center;
+      z-index: 10000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      opacity: 0;
+      visibility: hidden;
+      /* Animasi saat muncul dari bawah */
+      transition: opacity 0.5s, visibility 0.5s, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    }
+
+    .toast-popup.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0); /* Berpindah ke posisi tengah */
+    }
+    
+    /* CSS UNTUK TEKS PERINGATAN */
+    .warning-text {
+      font-size: 12px;
+      color: #888;
+      text-align: left;
+      line-height: 1.5;
+      /* PERUBAHAN MARGIN */
+      margin-top: -5px; 
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Masukkan Link / Username</h1>
+    <div class="bubble">
+      <div class="product-details">
+        <p>Anda akan memesan :</p>
+        <h2 style="margin-top: 5px;" id="product-name">Memuat...</h2>
+        <p>Harga : <strong id="product-price">Memuat...</strong></p>
+      </div>
+      <hr>
+      <form id="link-form">
+        <label for="target-link"><strong>Silakan masukkan URL/Link/Username target di bawah ini.</strong></label>
+        <input
+          type="text"
+          id="target-link"
+          class="input-field"
+          placeholder="Masukkan url/link/username disini"
+          required
+        />
+        <!-- TEKS PERINGATAN -->
+        <p class="warning-text">
+          Note : Akun harus dalam mode publik. Jika akun private, pesanan otomatis gagal tanpa garansi atau refund. Kami tidak bertanggung jawab atas kesalahan tersebut, akun boleh diprivatekan kembali setelah pesanan selesai. 
+        </p>
+        <button type="submit" class="confirm-button">Konfirmasi Pesanan</button>
+      </form>
+    </div>
+    <a href="javascript:history.back()" class="button" style="text-align:center; display:block; margin-top:15px;">Kembali</a>
+  </div>
+
+  <!-- Hapus link ke cart.js karena updateCartIcon tidak akan berfungsi di sini dan reload halaman lebih efektif -->
+  <!-- <script src="assets/js/cart.js"></script> -->
+  <script>
+    // Fungsi untuk menampilkan notifikasi popup
+    function showToast(message) {
+      const oldToast = document.querySelector('.toast-popup');
+      if (oldToast) {
+        oldToast.remove();
+      }
+
+      const toast = document.createElement("div");
+      toast.textContent = message;
+      toast.className = "toast-popup";
+      document.body.appendChild(toast);
+
+      setTimeout(() => {
+        toast.classList.add("show");
+      }, 100);
+
+      // Sembunyikan dan hapus toast setelah 2.5 detik
+      setTimeout(() => {
+        toast.classList.remove("show");
+        setTimeout(() => toast.remove(), 500); 
+      }, 2500); 
+    }
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const product = params.get('product');
+      const price = parseInt(params.get('price'), 10);
+      const action = params.get('action');
+
+      // Ambil URL halaman sebelumnya. Ini penting untuk navigasi yang benar.
+      const previousPageUrl = document.referrer; 
+
+      if (!product || !price || !action) {
+        window.location.href = 'index.html';
+        return;
+      }
+
+      document.getElementById('product-name').textContent = product;
+      document.getElementById('product-price').textContent = `Rp ${price.toLocaleString('id-ID')}`;
+
+      document.getElementById('link-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        
+        const targetLink = document.getElementById('target-link').value.trim();
+
+        if (!targetLink) {
+          // Ganti alert dengan toast
+          showToast('Link target tidak boleh kosong!');
+          return;
+        }
+
+        if (action === 'pesan') {
+          // Logika pemesanan WhatsApp (Tidak berubah)
+          let message = `Halo kak, saya mau order.\n\n`;
+          message += `- Produk : *${product}*\n`;
+          message += `- Harga : *Rp ${price.toLocaleString('id-ID')}*\n`;
+          message += `- Link : *${targetLink}*`;
+          
+          const whatsappUrl = `https://wa.me/6289676930992?text=${encodeURIComponent(message)}`;
+          window.location.href = whatsappUrl;
+
+        } else if (action === 'keranjang') {
+          // 1. Tambahkan produk ke keranjang
+          let cart = JSON.parse(localStorage.getItem("cart")) || [];
+          cart.push({ product: product, price: price, link: targetLink });
+          localStorage.setItem("cart", JSON.stringify(cart));
+          
+          // 2. Tampilkan notifikasi
+          showToast('Produk berhasil ditambahkan ke keranjang kuning.');
+          
+          // 3. Alihkan kembali ke halaman sebelumnya dan REFRESH
+          // Beri waktu yang cukup (misalnya 3 detik) agar pengguna sempat membaca toast sebelum navigasi.
+          const refreshDelay = 2500; 
+
+          setTimeout(() => {
+            if (previousPageUrl) {
+                // Menggunakan window.location.replace() untuk:
+                // a) Mengarahkan ke halaman sebelumnya (previousPageUrl)
+                // b) Memastikan halaman tersebut dimuat ulang sepenuhnya (refresh)
+                // Ini menggantikan history.back() yang tidak selalu me-refresh halaman.
+                window.location.replace(previousPageUrl);
+            } else {
+                // Fallback jika tidak ada document.referrer
+                history.back();
+            }
+            // Karena menggunakan replace(), tidak perlu lagi memanggil window.location.reload()
+          }, refreshDelay); 
+        }
+      });
+    });
+  </script>
+</body>
+</html>
