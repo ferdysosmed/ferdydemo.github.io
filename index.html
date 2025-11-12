@@ -1,20 +1,65 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ferdysosmed | Suntik Sosmed</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ferdysosmed - Layanan Jasa Suntik Sosial Media Terbaik</title>
+  <!-- Memuat gaya dasar (style.css) -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Memuat Font Awesome untuk ikon minimalis -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Gaya tambahan untuk kartu ikon "Kenapa Pilih Kami?" (tetap di sini agar terisolasi) */
+    .icon-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 2 kolom untuk mobile, lebih untuk desktop */
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .icon-card {
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 120px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .icon-card i {
+      font-size: 3em;
+      color: #76ff03; /* Warna ikon, sesuai tema hijau Anda */
+      margin-bottom: 10px;
+    }
+
+    .icon-card h3 {
+      color: #e0e0e0;
+      margin: 0;
+      font-size: 1em;
+      font-weight: normal;
+    }
+    
+    @media (max-width: 600px) {
+      .icon-card-grid {
+        grid-template-columns: repeat(2, 1fr); /* Pastikan 2 kolom di layar sangat kecil */
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Ikon Keranjang Belanja Mengambang -->
   <div style="
   position: fixed;
-  bottom: 80px;  /* Naik sedikit dari bawah */
+  bottom: 80px;
   right: 20px;
   z-index: 9999;
 ">
-  <a href="/cart.html" style="position: relative; display: inline-block;">
-    <img src="/assets/img/keranjang.png" alt="Keranjang" style="width: 65px; height: 65px;">
+  <a href="cart.html" style="position: relative; display: inline-block;">
+    <img src="assets/img/keranjang.png" alt="Keranjang" style="width: 65px; height: 65px;">
     <span id="cart-count" style="
       position: absolute;
       top: -8px;
@@ -29,122 +74,99 @@
     "></span>
   </a>
   </div>
+  
   <div class="container">
-    <h1>ferdysosmed</h1>
-
-    <div class="bubble">
-      <h2>Tentang Kami</h2>
-      <p>Kami adalah penyedia layanan penambah interaksi media sosial yang aman, cepat, dan terpercaya. Layanan kami mencakup penambahan like, follower, view, komentar, dan interaksi lainnya untuk membantu meningkatkan kredibilitas dan jangkauan akun Anda.</p>
+    <h1 style="text-align: center; margin-bottom: 30px;">ferdysosmed</h1>
+    
+    <!-- 1. Pilihan Platform Layanan (Posisi Baru: Atas) -->
+    <h2>Layanan Kami</h2>
+    <div class="bubble" style="display: flex; gap: 15px; justify-content: center;">
+        <a href="tiktok/index.html" class="button" style="width: 150px;">TikTok</a>
+        <a href="instagram/index.html" class="button" style="width: 150px;">Instagram</a>
     </div>
 
+    <!-- 2. BAGIAN 'KENAPA PILIH KAMI?' (Posisi Baru: Bawah) -->
+    <h2 style="text-align: center; margin-top: 40px; margin-bottom: 20px;">⭐ Kenapa Pilih ferdysosmed?</h2>
     <div class="bubble">
-      <h2>Pilih Platform</h2>
-      <p>Silakan pilih salah satu platform media sosial di bawah ini untuk melihat layanan yang tersedia.</p>
-      <div class="button-group">
-        <a href="tiktok/index.html" class="button">
-          <img src="assets/img/tiktok.png" class="icon"> <strong>TikTok</strong>
-        </a>
-        <a href="instagram/index.html" class="button">
-          <img src="assets/img/instagram.png" class="icon"> <strong>Instagram</strong>
-        </a>
-      </div>
-    </div>
-
-    <div class="bubble">
-      <h2>Kenapa Pilih Kami?</h2>
-      <ul>
-        <li>✅ Layanan Berkualitas Tinggi</li>
-        <li>✅ Proses Cepat dan Aman</li>
-        <li>✅ Privasi Terjaga 100%</li>
-        <li>✅ Dukungan Penuh 24/7</li>
-        <li>✅ Anti Drop dan Permanen</li>
-        <li>✅ Pelayanan yang Ramah</li>
-        <li>✅ Fast Respon</li>
-        <li>✅ Harga Murah Kualitas Tinggi</li>
-      </ul>
-    </div>
-
-    <div class="bubble">
-      <h2>Testimoni</h2>
-      <p>Silakan cek kumpulan testimoni dari pelanggan kami melalui sorotan Instagram berikut.  
-      Setiap sorotan berisi hingga 100 testimoni nyata dari pembeli.</p>
-
-      <div class="button-grid">
-        <a class="button" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDMxMDQ0OTM1MDgzMTMw?story_media_id=3390599550871519175_67087909457&igsh=ZjlhZ3F4a2RobWN0" target="_blank">Sorotan 1</a>
-        <a class="button" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE3ODkxMjAyMzU0MDI4Njk2?story_media_id=3395676510681223209_67087909457&igsh=MWFwZmF4aXBtdDhsOA==" target="_blank">Sorotan 2</a>
-        <a class="button" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MzI1NjY1NzA2MTc2MTg0?story_media_id=3402896280476219091_67087909457&igsh=MXFkeDY2dHA4eXZyag==" target="_blank">Sorotan 3</a>
-        <a class="button" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDU1NDgwODkxNjMyMjQ4?story_media_id=3408744675912079553_67087909457&igsh=MXBhdXRhZ2QxODA3OA==" target="_blank">Sorotan 4</a>
-        <a class="button" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDQzMTQ5NzMxMzEwNjIx?story_media_id=3446397580262496332_67087909457&igsh=MWR0bGNqeTY0cGVmdA==" target="_blank">Sorotan 5</a>
-        <a class="button" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTIwNTkyOTgxOTc0NTY0?story_media_id=3463080987180579138_67087909457&igsh=MXAwMDlneGNucG8wMQ==" target="_blank">Sorotan 6</a>
-        <a class="button" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDcyMjY3Nzg3NTg3OTI3?story_media_id=3476909865812362031_67087909457&igsh=aHNvMHFtNGw0NGp4" target="_blank">Sorotan 7</a>
-        <a class="button" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDU2Mzg5NzAyODk1NTY1?story_media_id=3498597086914968003_67087909457&igsh=eXgyemNjaXpoM3ll" target="_blank">Sorotan 8</a>
-        <a class="button" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDg1MjE3ODU3NTk0MjA1?story_media_id=3579829348339474219_67087909457&igsh=MXJoYzNnZXQzb25raw==" target="_blank">Sorotan 9</a>
-        <a class="button" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDA2NjE4NTM2NTY3NTM1?story_media_id=3608744909123107724_67087909457&igsh=ZnhzaXU2dWRobnoy" target="_blank">Sorotan 10</a>
-        <a class="button" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDQ0NzU3NzA0NTQ2NDc3?story_media_id=3654455669027458370_67087909457&igsh=MXNiNmsyd2FpbXo0Nw==" target="_blank">Sorotan 11</a>
-        <a class="button" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTE4MTUyMDM1MTM3NDg1?story_media_id=3690668727743496313_67087909457&igsh=anZjcHk5NWhpNHA=" target="_blank">Sorotan 12</a>
-      </div>
-    </div>
-
-    <div class="bubble">
-      <h2>Syarat dan Ketentuan</h2>
-      <ul>
-        <li><strong>Umum :</strong> Dengan melakukan pemesanan, Anda dianggap telah membaca, memahami, dan menyetujui semua syarat dan ketentuan yang berlaku.</li>
-        <li><strong>Privasi Akun :</strong> Pastikan akun sosial media Anda tidak di-private selama proses pengerjaan. Pesanan pada akun yang di-private tidak dapat kami proses dan bukan menjadi tanggung jawab kami.</li>
-        <li><strong>Username :</strong> Dilarang mengubah username selama proses pengerjaan. Jika username diubah, pesanan dianggap selesai dan tidak ada pengembalian dana.</li>
-        <li><strong>Pembayaran :</strong> Semua pembayaran dilakukan di muka. Pesanan akan diproses setelah pembayaran berhasil diverifikasi.</li>
-        <li><strong>Proses Pengerjaan :</strong> Estimasi waktu proses bervariasi tergantung pada layanan dan jumlah pesanan. Kami akan memberikan informasi perkiraan saat Anda melakukan pemesanan.</li>
-        <li><strong>Garansi :</strong> Kami memberikan garansi anti-drop pada beberapa layanan. Klaim garansi hanya berlaku jika penurunan jumlah terjadi secara signifikan dan bukan karena pembersihan oleh pihak platform (Instagram/TikTok).</li>
-        <li><strong>Pembatalan :</strong> Pesanan yang sudah masuk ke dalam sistem tidak dapat dibatalkan atau diubah. Pastikan data yang Anda berikan sudah benar.</li>
-        <li><strong>Tanggung Jawab :</strong> Kami tidak bertanggung jawab atas penangguhan atau penghapusan akun oleh pihak sosial media. Namun, layanan kami dirancang seaman mungkin untuk meminimalkan risiko tersebut.</li>
-      </ul>
-    </div>
-
-    <div class="bubble">
-      <h2>Media Sosial Resmi Kami</h2>
-      <p>Ikuti akun media sosial resmi kami untuk mendapatkan informasi terbaru, promo, dan konten menarik lainnya.</p>
-      <div class="button-group">
-        <a href="https://www.tiktok.com/@ferdysosmedofficial" class="button" target="_blank">
-            <img src="assets/img/tiktok.png" class="icon"> <strong>@ferdysosmedofficial</strong>
-        </a>
-        <a href="https://www.instagram.com/ferdysosmed.official" class="button" target="_blank">
-            <img src="assets/img/instagram.png" class="icon"> <strong>@ferdysosmed.official</strong>
-        </a>
-      </div>
-    </div>
-
-    <div class="bubble">
-        <h2>Partner Kami</h2>
-        <p>Kami bangga dapat bekerja sama dengan para partner hebat berikut dalam mempromosikan toko kami. Kunjungi profil mereka untuk melihat konten menarik lainnya.</p>
-        <div class="button-grid">
-            <a href="https://www.tiktok.com/@danisukawaifu" class="button" target="_blank">
-                <img src="assets/img/tiktok.png" class="icon"> <strong>@danisukawaifu</strong>
-            </a>
-            <a href="https://www.tiktok.com/@danzzsukahujan" class="button" target="_blank">
-                <img src="assets/img/tiktok.png" class="icon"> <strong>@danzzsukahujan</strong>
-            </a>
-            <a href="https://www.tiktok.com/@daniareyouokey" class="button" target="_blank">
-                <img src="assets/img/tiktok.png" class="icon"> <strong>@daniareyouokey</strong>
-            </a>
-            <a href="https://www.instagram.com/ferdysosmed.meme" class="button" target="_blank">
-                <img src="assets/img/instagram.png" class="icon"> <strong>@ferdysosmed.meme</strong>
-            </a>
-            <a href="https://www.instagram.com/danisukawaifu" class="button" target="_blank">
-                <img src="assets/img/instagram.png" class="icon"> <strong>@danisukawaifu</strong>
-            </a>
+      <div class="icon-card-grid">
+        
+        <div class="icon-card">
+          <i class="fas fa-award"></i>
+          <h3>Layanan Berkualitas</h3>
         </div>
+
+        <div class="icon-card">
+          <i class="fas fa-bolt"></i>
+          <h3>Proses Cepat</h3>
+        </div>
+        
+        <div class="icon-card">
+          <i class="fas fa-lock"></i>
+          <h3>Privasi Terjaga</h3>
+        </div>
+
+        <div class="icon-card">
+          <i class="fas fa-headset"></i>
+          <h3>Dukungan 24/7</h3>
+        </div>
+
+        <div class="icon-card">
+          <i class="fas fa-infinity"></i>
+          <h3>Anti Drop & Permanen</h3>
+        </div>
+
+        <div class="icon-card">
+          <i class="fas fa-smile"></i>
+          <h3>Pelayanan Ramah</h3>
+        </div>
+        
+        <div class="icon-card">
+          <i class="fas fa-comments"></i>
+          <h3>Fast Respon</h3>
+        </div>
+        
+        <div class="icon-card">
+          <i class="fas fa-tags"></i>
+          <h3>Harga Terbaik</h3>
+        </div>
+
+      </div>
+    </div>
+    
+    <!-- 3. SYARAT & KETENTUAN (Tombol) -->
+    <h2>Syarat dan Ketentuan</h2>
+    <div class="bubble" style="text-align: center;">
+        <p>Harap baca dan pahami sebelum melakukan order.</p>
+        <a href="syarat-dan-ketentuan.html" class="button" style="background-color: #ff9800; margin-top: 10px;">Baca Selengkapnya</a>
     </div>
 
+    <!-- 4. Bagian Testimoni -->
+    <h2>Testimoni</h2>
     <div class="bubble">
-        <h2>Hubungi Kami</h2>
-        <p>Jika ada pertanyaan atau butuh bantuan, jangan ragu untuk menghubungi kami melalui WhatsApp.</p>
-        <a href="https://wa.me/6289676930992" class="button" target="_blank">
-            <img src="assets/img/whatsapp.png" class="icon" style="width:20px; height:20px; margin-right: 8px;"> <strong>Hubungi Kami</strong>
-        </a>
+      <p>Lihat hasil dan ulasan pelanggan kami:</p>
+      <a href="https://instagram.com/ferdysosmed" target="_blank" class="button" style="background-color: #e91e63; margin-top: 10px;">Lihat di Instagram (Sorotan)</a>
+    </div>
+
+    <!-- 5. Bagian Kontak / WA -->
+    <h2>Kontak Kami</h2>
+    <div class="bubble">
+      <p>Hubungi kami untuk pertanyaan atau bantuan lebih lanjut.</p>
+      <a href="https://wa.me/6289676930992?text=Halo%20kak,%20saya%20mau%20tanya%20mengenai%20jasa%20suntik%20sosmed." target="_blank" class="button" style="background-color: #00c851; margin-top: 10px;">Hubungi via WhatsApp</a>
+    </div>
+
+    <!-- 6. Bagian Media Sosial Resmi -->
+    <h2>Media Sosial Resmi</h2>
+    <div class="bubble" style="display: flex; justify-content: center; gap: 20px;">
+        <a href="#" target="_blank"><img src="assets/img/tiktok.png" alt="TikTok" style="width: 40px;"></a>
+        <a href="https://instagram.com/ferdysosmed" target="_blank"><img src="assets/img/instagram.png" alt="Instagram" style="width: 40px;"></a>
     </div>
 
   </div>
-  <script src="/assets/js/cart.js"></script>
+  
+  <!-- Memuat script cart.js untuk mengelola ikon keranjang -->
+  <script src="assets/js/cart.js"></script>
   <div style="text-align: center; padding: 20px 0; margin-top: 30px; color: #555; font-size: 14px;">
-  Disarankan untuk membaca <a href="/syarat-dan-ketentuan.html" style="text-decoration: underline; color: #555;">Syarat dan Ketentuan</a> sebelum melakukan order suntik sosmed
+    Hak Cipta &copy; 2025 ferdysosmed.
   </div>
 </body>
+</html>
